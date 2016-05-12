@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Innlevering3DatabaseModelStoreContainer" CdmEntityContainer="Innlevering3DatabaseEntities">
+    <EntitySetMapping Name="Ansatte">
+      <EntityTypeMapping TypeName="Innlevering3DatabaseModel.Ansatte">
+        <MappingFragment StoreEntitySet="Ansatte">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Fornavn" ColumnName="Fornavn" />
+          <ScalarProperty Name="Etternavn" ColumnName="Etternavn" />
+          <ScalarProperty Name="Mobil" ColumnName="Mobil" />
+          <ScalarProperty Name="BildeSrc" ColumnName="BildeSrc" />
+          <ScalarProperty Name="AvdelingId" ColumnName="AvdelingId" />
+          <ScalarProperty Name="RolleId" ColumnName="RolleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Avdeling">
+      <EntityTypeMapping TypeName="Innlevering3DatabaseModel.Avdeling">
+        <MappingFragment StoreEntitySet="Avdeling">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Navn" ColumnName="Navn" />
+          <ScalarProperty Name="Postnummer" ColumnName="Postnummer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Henvendelser">
+      <EntityTypeMapping TypeName="Innlevering3DatabaseModel.Henvendelser">
+        <MappingFragment StoreEntitySet="Henvendelser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Navn" ColumnName="Navn" />
+          <ScalarProperty Name="Epost" ColumnName="Epost" />
+          <ScalarProperty Name="Tittel" ColumnName="Tittel" />
+          <ScalarProperty Name="Tekst" ColumnName="Tekst" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rolle">
+      <EntityTypeMapping TypeName="Innlevering3DatabaseModel.Rolle">
+        <MappingFragment StoreEntitySet="Rolle">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Navn" ColumnName="Navn" />
+          <ScalarProperty Name="Beskrivelse" ColumnName="Beskrivelse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

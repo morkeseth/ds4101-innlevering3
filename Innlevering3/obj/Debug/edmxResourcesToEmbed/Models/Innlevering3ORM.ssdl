@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Innlevering3DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Ansatte">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fornavn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Etternavn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobil" Type="int" Nullable="false" />
+    <Property Name="BildeSrc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AvdelingId" Type="int" Nullable="false" />
+    <Property Name="RolleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Avdeling">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Navn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Postnummer" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Henvendelser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Navn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Epost" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tittel" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Tekst" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rolle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Navn" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Beskrivelse" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Ansatte_Avdeling">
+    <End Role="Avdeling" Type="Self.Avdeling" Multiplicity="1" />
+    <End Role="Ansatte" Type="Self.Ansatte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Avdeling">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ansatte">
+        <PropertyRef Name="AvdelingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ansatte_Rolle">
+    <End Role="Rolle" Type="Self.Rolle" Multiplicity="1" />
+    <End Role="Ansatte" Type="Self.Ansatte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rolle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ansatte">
+        <PropertyRef Name="RolleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Innlevering3DatabaseModelStoreContainer">
+    <EntitySet Name="Ansatte" EntityType="Self.Ansatte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Avdeling" EntityType="Self.Avdeling" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Henvendelser" EntityType="Self.Henvendelser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rolle" EntityType="Self.Rolle" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Ansatte_Avdeling" Association="Self.FK_Ansatte_Avdeling">
+      <End Role="Avdeling" EntitySet="Avdeling" />
+      <End Role="Ansatte" EntitySet="Ansatte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ansatte_Rolle" Association="Self.FK_Ansatte_Rolle">
+      <End Role="Rolle" EntitySet="Rolle" />
+      <End Role="Ansatte" EntitySet="Ansatte" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

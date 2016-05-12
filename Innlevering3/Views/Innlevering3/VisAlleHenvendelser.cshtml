@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Innlevering3.Models.Henvendelser>
+@{
+    ViewBag.Title = "Alle henvendelser";
+}
+
+<h2>Her er alle henvendelser</h2>
+
+@if (Model != null)
+{
+    foreach (var henvendelser in Model)
+    {
+        <article>
+            <h3>@henvendelser.Tittel</h3>
+            <p>Tekst: @henvendelser.Tekst</p>
+            <p>Skrevet av: @henvendelser.Navn</p>
+        </article>
+    }
+}
+else
+{
+    <p>Noe gikk galt med databasen, prøv igjen</p>
+}

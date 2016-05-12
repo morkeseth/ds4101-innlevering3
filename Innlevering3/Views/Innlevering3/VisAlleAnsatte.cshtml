@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Innlevering3.Models.Ansatte>
+@{
+    ViewBag.Title = "Alle ansatte";
+}
+
+<h2>Her er alle ansatte</h2>
+
+@if (Model != null)
+{
+    foreach (var ansatte in Model)
+    {
+        <article>
+            <p>Fornavn: @ansatte.Fornavn</p>
+            <p>Etternavn: @ansatte.Etternavn</p>
+        </article>
+    }
+}
+else
+{
+    <p>Noe gikk galt med databasen, prøv igjen</p>
+}

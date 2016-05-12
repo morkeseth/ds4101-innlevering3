@@ -1,0 +1,29 @@
+﻿@model Innlevering3.Models.Ansatte
+@{
+    ViewBag.Title = "Registrer ny ansatt";
+}
+
+<h2>Registrer ny ansatt</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td><label>Fornavn</label></td>
+            <td>@Html.TextBoxFor(ansatte => ansatte.Fornavn)</td>
+            <td>@Html.ValidationMessageFor(ansatte => ansatte.Fornavn)</td>
+        </tr>
+        <tr>
+            <td><label>Etternavn</label></td>
+            <td>@Html.TextBoxFor(ansatte => ansatte.Etternavn)</td>
+            <td>@Html.ValidationMessageFor(ansatte => ansatte.Etternavn)</td>
+        </tr>
+        <tr>
+            <td><label>Mobil</label></td>
+            <td>@Html.TextBoxFor(ansatte => ansatte.Mobil)</td>
+            <td>@Html.ValidationMessageFor(ansatte => ansatte.Mobil)</td>
+        </tr>
+    </table>
+    <input type="submit" value="Lagre ansatt" />
+}
+
